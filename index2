@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Welcome to your distributor's ordering interface </title>
+<style>
+
+        body {
+
+            font-family: Gill Sans Ultra Bold, sans-serif;
+
+            flex-direction: column;
+
+            margin-bottom: 2000px;
+
+            margin-top: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            background-color: #197BBD;
+        }
+       
+	    h1 {
+		 font-family: Gill Sans Ultra Bold, sans-serif;
+
+            margin-bottom: 300px;
+
+            flex-direction: column;
+
+            margin-top: 10px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 500vh;
+
+            
+        }
+		   
+	   
+
+
+		
+        .button-container {
+         display: flex; /* Place les boutons sur la même ligne */
+         justify-content: center; 
+         gap: 10px;
+         margin-top: 0px; 
+         margin-bottom: 0px;
+        }
+
+
+
+        .container {
+
+            text-align: center;
+
+        }
+
+        button {
+
+            padding: 20px 50px;
+
+            display: flex;
+
+            font-size: 20px;
+
+            margin: 20px;
+
+            cursor: pointer;
+
+            justify-content: center;
+
+            gap: 20px;
+
+            background-color: #ffffff; /* Couleur de fond par défaut */
+
+            color: rgb(0, 0, 0);
+
+
+        }
+
+        button:hover {
+          background-color: #6E9AB8;
+        }
+ 
+	    img {
+         display: flex;
+         width: 120px;
+         border-radius: 20px;
+         justify-content: center;
+
+        }
+
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(7, 50px);
+            gap: 5px;
+            border-radius: 10px; /* Coins arrondis pour le conteneur de la grille */
+            padding: 10px;
+            background-color: #111; /* Fond légèrement plus clair pour la grille */
+        }
+		
+		
+        .cell {
+            width: 50px;
+            height: 50px;
+            background-color: #18cc21;
+            border-radius: 5px; /* Coins arrondis pour chaque cellule */
+        }
+		
+		
+        .active {
+            background-color: #f82626;
+        }
+		
+        
+        .menu-container {
+          position: relative;
+        }
+	
+
+        .menu-button {
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          background-color: #125E8A;
+         color: white;
+         border: none;
+         border-radius: 5px;
+        }
+
+        .menu-content {
+         display: none; /* Masque le menu par défaut */
+         position: absolute;
+         top: 0;
+         right: -200px; /* Positionne le menu à droite */
+         width: 200px;
+         background-color: #ffffff;
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+         z-index: 1;
+         border-radius: 5px;
+         padding: 10px;
+        }
+
+        .menu-content a {
+         display: block;
+         color: black;
+         padding: 10px;
+         text-decoration: none;
+         border-bottom: 1px solid #ddd;
+        }
+
+        .menu-content a:hover {
+         background-color: #f1f1f1;
+        }
+
+        .menu-container:hover .menu-content {
+         display: block; /* Affiche le menu au survol */
+        }
+
+        .side-menu {
+         height: 100%; /* Prend toute la hauteur de la page */
+         width: 0; /* Largeur initiale à 0 (caché) */
+         position: fixed; /* Fixé sur le côté de la page */
+         top: 0;
+         right: 0; /* Positionné à droite */
+         background-color: #166DA4; /* Couleur de fond */
+         overflow-x: hidden; /* Cache le débordement horizontal */
+         transition: 0.7s; /* Animation fluide pour l'ouverture/fermeture */
+         padding-top: 60px; /* Espace en haut pour éviter de coller au bord */
+         border: 5px solid #000000; /* Ajoute un contour bleu */
+         border-radius: 10px; /* Ajoute des coins arrondis */
+         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ajoute une ombre pour un effet visuel */
+        }
+
+        .side-menu a {
+         padding: 10px 20px;
+         text-decoration: none;
+         font-size: 18px;
+         color: white;
+         display: block;
+         transition: 0.3s;
+        }
+
+        /* Effet au survol des liens */
+        .side-menu a:hover {
+         background-color: #5993BA;
+        }
+
+        /* Bouton pour fermer le menu */
+        .close-btn {
+         position: absolute;
+         top: 10px;
+         right: 20px;
+         font-size: 36px;
+         color: white;
+         text-decoration: none;
+        }
+
+        .open-menu-btn {
+         padding: 10px 20px;
+         font-size: 16px;
+         cursor: pointer;
+         background-color: #049ed7;
+         color: white;
+         border: none;
+         border-radius: 5px;
+        }
+
+    h3 {
+            font-family: Gill Sans Ultra Bold, sans-serif;
+
+            display: flex;
+
+            color: #ffffff;
+
+            
+
+        }
+</style>
+</head>
+ <body>
+  <h1>Welcome to your distributor's ordering interface</h1>
+    <div class="button-container">
+     <a href=""><button>Turn on the system</button></a>
+     <a href=""><button>Turn off the system</button></a>
+     <a href=""><button>Information for veterinarians</button></a>
+   </div>
+   <div class="grid">
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell active"></div>
+     <div class="cell active"></div>
+     <div class="cell active"></div>
+     <div class="cell active"></div>
+     <div class="cell active"></div>
+     <div class="cell active"></div>
+     <div class="cell active"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell active"></div>
+     <div class="cell"></div>
+     <div class="cell active"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+     <div class="cell"></div>
+  </div>
+  <div class="side-menu" id="sideMenu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+     <div class="image">
+       <img src="https://imgs.search.brave.com/Iua20V7TUZZya7Lf1-EX2kCcV9FW2e7v7W7Fy685AiE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Z29vZGJyby5mci93/cC1jb250ZW50L3Vw/bG9hZHMvY2FsY3Vs/LXF1YW50aXRlLW5v/dXJyaXR1cmUtZGFu/cy1nYW1lbGxlLWNo/YXQtMzAweDMwMC5q/cGc" alt="">
+     </div>
+   <h3>What food for my cat?</h3>
+    <a href="https://www.zoomalia.com/blog/article/comment-nourrir-chat-naturellement.html">Click here !</a>
+  </div>
+
+  <button class="open-menu-btn" onclick="openMenu()">☰ Tips</button>
+ 
+
+<script>
+    function openMenu() {
+        document.getElementById("sideMenu").style.width = "300px"; // Largeur du menu ouvert
+    }
+
+    function closeMenu() {
+        document.getElementById("sideMenu").style.width = "0"; // Cache le menu
+    }
+</script>
